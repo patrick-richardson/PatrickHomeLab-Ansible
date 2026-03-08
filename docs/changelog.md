@@ -1,5 +1,61 @@
 # PatrickHomeLab Change Log
 
+# Changelog
+
+## 2026-03-07 — GitHub Integration and Repository Initialization
+
+### Infrastructure Automation Repository
+- Created initial Git repository for PatrickHomeLab automation
+- Structured repository for Ansible infrastructure management
+
+Directory structure:
+- docs/ – documentation and architecture
+- inventory/ – host inventory definitions
+- playbooks/ – automation playbooks
+- roles/ – reusable Ansible roles
+- scripts/ – operational scripts
+- templates/ – configuration templates
+
+### GitHub Integration
+- Created public repository: PatrickHomeLab-Ansible
+- Connected controller-01 automation environment to GitHub
+- Configured SSH authentication for secure Git operations
+
+### Repository Hygiene
+- Removed local system files from repository
+  - .DS_Store
+  - .vscode settings
+- Implemented .gitignore rules
+
+### CI Integration
+- Enabled GitHub Actions
+- Added ansible-lint workflow for automated code validation
+
+### GitHub Account Update
+- Renamed GitHub account from `Eagle6904` → `patrick-richardson`
+- Updated repository remote URL on controller-01
+- Verified SSH authentication and Git push access
+
+### Current State
+PatrickHomeLab automation repository is now:
+- Version controlled
+- Publicly accessible
+- CI validated
+- Ready for infrastructure automation expansion
+
+### Patch Automation Improvements
+- Updated `update.yml` playbook to support automated system patching
+- Integrated weekly update workflow with reporting output
+
+### Email Notification System
+- Configured email reporting for update results
+- Weekly patch job now sends a single summarized report instead of multiple messages
+- Implemented monthly summary reporting that aggregates the previous four weekly patch reports and clears archived weekly entries after summary generation.
+- Validated successful email delivery from controller-01
+
+Purpose:
+Provide visibility into patch results without needing to SSH into the infrastructure nodes.
+
 ## 2026-03-02
 - Initialized structured documentation
 ## 2026-03-06 – Automation & Monitoring Improvements
