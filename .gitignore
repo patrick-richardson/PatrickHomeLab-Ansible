@@ -1,5 +1,6 @@
 logs/
 reports/
+tmp/
 *.log
 *.retry
 *.key
@@ -7,3 +8,4 @@ reports/
 .env
 .DS_Store
 .vscode/
+

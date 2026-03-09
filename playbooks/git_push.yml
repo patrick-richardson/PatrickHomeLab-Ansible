@@ -1,0 +1,30 @@
+---
+- name: Push PatrickHomeLab Ansible repo to GitHub
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  become: false
+
+  vars:
+    repo_path: "/home/patrick/ansible"
+    commit_message: "Automated commit {{ lookup('pipe','date +%Y-%m-%d_%H:%M:%S') }}"
+
+  tasks:
+
+    - name: Add all changed files
+      command: git add .
+      args:
+        chdir: "{{ repo_path }}"
+
+    - name: Commit changes
+      command: git commit -m "{{ commit_message }}"
+      args:
+        chdir: "{{ repo_path }}"
+      register: commit_result
+      ignore_errors: yes
+
+    - name: Push to GitHub
+      command: git push
+      args:
+        chdir: "{{ repo_path }}"
+      when: commit_result.rc == 0
